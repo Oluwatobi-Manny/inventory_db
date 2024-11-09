@@ -38,11 +38,12 @@
    * **Purchase Reports:** Track purchasing trends, supplier performance, and cost analysis.
 
 **Schema:**
+
 ```sql
 CREATE TABLE Categories (
     category_id INT IDENTITY (1,1) PRIMARY KEY,
     category_name VARCHAR(100) NOT NULL,
-	created_at DATETIME DEFAULT GETDATE() NOT NULL
+	created_at DATETIME DEFAULT GETDATE() NOT NULL 
 );
 
 CREATE TABLE Suppliers (
@@ -56,6 +57,8 @@ CREATE TABLE Suppliers (
     created_at DATETIME DEFAULT GETDATE() NOT NULL
 );
 ```
+
+![Inventory schema](Images/Inventory-db.jpeg)
 
 **Operations:**
 
@@ -169,29 +172,6 @@ BEGIN
 END;
 ```
 
-This basic inventory management system allows you to add new products, update inventory levels, check stock levels, find products that are low in stock, and update product details.
-
-Feel free to expand on this system to include more features such as tracking sales, generating reports, and managing multiple warehouses. Let me know if you need any more help!
-
-
-**SQL Implementation:**
-
-* **Database Design:** Create a relational database with tables for products, categories, suppliers, purchase orders, sales orders, and inventory levels.
-* **Data Entry:** Populate the database with accurate and up-to-date product information, inventory levels, and transaction details.
-* **SQL Queries:** Use SQL queries to retrieve, update, and analyze inventory data. For example:
-  ```sql
-  -- Retrieve low-stock items
-  SELECT product_name, quantity_on_hand
-  FROM products
-  WHERE quantity_on_hand < reorder_level;
-
-  -- Calculate total sales revenue
-  SELECT SUM(quantity * selling_price) AS total_revenue
-  FROM sales_orders
-  JOIN order_details ON sales_orders.order_id = order_details.order_id;
-  ```
-* **User Interface:** Develop a user-friendly interface (e.g., web-based or command-line) to interact with the system.
-
 **Benefits:**
 
 * **Improved Inventory Accuracy:** Real-time tracking of stock levels reduces stockouts and overstock.
@@ -199,5 +179,3 @@ Feel free to expand on this system to include more features such as tracking sal
 * **Data-Driven Decisions:** Data-driven insights help optimize inventory levels and purchasing strategies.
 * **Cost Reduction:** Minimized inventory holding costs and reduced losses.
 * **Enhanced Customer Satisfaction:** Timely order fulfillment and product availability improve customer satisfaction.
-
-By implementing this Inventory Management System, "The Gadget Shop" can streamline its operations, reduce costs, and improve overall business performance.
